@@ -1,0 +1,1879 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Govt. Pilot Secondary School Multan - Excellence in Education Since 1960</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* ===== BASE STYLES ===== */
+        :root {
+            --primary: #1a4b8c;
+            --primary-light: #2a6bc5;
+            --primary-dark: #0d3a6b;
+            --secondary: #f8b739;
+            --secondary-light: #f9c862;
+            --accent: #e63946;
+            --light: #f8f9fa;
+            --dark: #343a40;
+            --text: #333;
+            --text-light: #6c757d;
+            --border: #dee2e6;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background-color: #fff;
+            overflow-x: hidden;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-weight: 600;
+            line-height: 1.3;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: var(--secondary);
+        }
+
+        .section-subtitle {
+            font-size: 1.2rem;
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 28px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: white;
+            box-shadow: 0 4px 15px rgba(26, 75, 140, 0.3);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-light);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(26, 75, 140, 0.4);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--primary);
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        .btn-block {
+            display: block;
+            width: 100%;
+            text-align: center;
+            justify-content: center;
+        }
+
+        /* ===== NAVIGATION ===== */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            transition: var(--transition);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        .logo-text h2 {
+            font-size: 1.3rem;
+            color: var(--primary);
+            margin: 0;
+            line-height: 1.2;
+        }
+
+        .logo-text p {
+            font-size: 0.8rem;
+            color: var(--text-light);
+            margin: 0;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 500;
+            padding: 8px 0;
+            position: relative;
+            transition: var(--transition);
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: var(--primary);
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary);
+            transition: var(--transition);
+        }
+
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            width: 100%;
+        }
+
+        .nav-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .bar {
+            width: 25px;
+            height: 3px;
+            background-color: var(--primary);
+            margin: 3px 0;
+            transition: var(--transition);
+        }
+
+        /* ===== HERO SECTION ===== */
+        .hero {
+            padding: 150px 0 100px;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-container {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .hero-content {
+            flex: 1;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background-color: var(--secondary);
+            color: var(--dark);
+            padding: 6px 15px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero-description {
+            font-size: 1.2rem;
+            color: var(--text-light);
+            margin-bottom: 30px;
+            max-width: 500px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 40px;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 30px;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat h3 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 5px;
+        }
+
+        .stat p {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        .hero-visual {
+            flex: 1;
+            position: relative;
+            height: 400px;
+        }
+
+        .main-visual {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            border-radius: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            box-shadow: var(--shadow);
+        }
+
+        .visual-placeholder {
+            text-align: center;
+        }
+
+        .visual-placeholder i {
+            font-size: 4rem;
+            display: block;
+            margin-bottom: 15px;
+        }
+
+        .visual-placeholder p {
+            font-size: 1.2rem;
+            font-weight: 500;
+        }
+
+        .floating-card {
+            position: absolute;
+            background: white;
+            padding: 15px;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            width: 180px;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .floating-card i {
+            color: var(--primary);
+            font-size: 1.5rem;
+        }
+
+        .floating-card p {
+            font-weight: 500;
+            margin: 0;
+        }
+
+        .card-1 {
+            top: 0;
+            left: -30px;
+            animation-delay: 0s;
+        }
+
+        .card-2 {
+            top: 50%;
+            right: -30px;
+            transform: translateY(-50%);
+            animation-delay: 1s;
+        }
+
+        .card-3 {
+            bottom: 0;
+            left: 50px;
+            animation-delay: 2s;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        /* ===== ABOUT SECTION ===== */
+        .about {
+            background-color: var(--light);
+        }
+
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 60px;
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .about-text p {
+            margin-bottom: 30px;
+            font-size: 1.1rem;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+        }
+
+        .feature {
+            display: flex;
+            gap: 15px;
+        }
+
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            background: white;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-size: 1.5rem;
+            box-shadow: var(--shadow);
+            flex-shrink: 0;
+        }
+
+        .feature-text h4 {
+            margin-bottom: 8px;
+            color: var(--primary);
+        }
+
+        .feature-text p {
+            font-size: 0.95rem;
+            margin: 0;
+        }
+
+        .about-visual {
+            flex: 1;
+        }
+
+        .image-frame {
+            width: 100%;
+            height: 400px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-light);
+        }
+
+        .frame-placeholder i {
+            font-size: 4rem;
+            display: block;
+            margin-bottom: 15px;
+        }
+
+        .frame-placeholder p {
+            font-size: 1.2rem;
+        }
+
+        /* ===== ACADEMICS SECTION ===== */
+        .academics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .academic-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .academic-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .card-header {
+            padding: 30px 30px 20px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            color: white;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .card-icon {
+            width: 60px;
+            height: 60px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+
+        .card-header h3 {
+            margin: 0;
+            font-size: 1.5rem;
+        }
+
+        .card-body {
+            padding: 25px 30px;
+        }
+
+        .card-body p {
+            margin-bottom: 20px;
+            color: var(--text-light);
+        }
+
+        .card-body ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .card-body li {
+            padding: 8px 0;
+            border-bottom: 1px solid var(--border);
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .card-body li:before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-weight: bold;
+        }
+
+        .card-body li:last-child {
+            border-bottom: none;
+        }
+
+        /* ===== ADMISSIONS SECTION ===== */
+        .admissions {
+            background-color: var(--light);
+        }
+
+        .admissions-content {
+            display: flex;
+            gap: 60px;
+        }
+
+        .admissions-process {
+            flex: 1;
+        }
+
+        .admissions-process h3 {
+            margin-bottom: 30px;
+            color: var(--primary);
+            font-size: 1.8rem;
+        }
+
+        .process-steps {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .step {
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+        }
+
+        .step-number {
+            width: 40px;
+            height: 40px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        .step-content h4 {
+            margin-bottom: 8px;
+            color: var(--primary);
+        }
+
+        .step-content p {
+            color: var(--text-light);
+            margin: 0;
+        }
+
+        .admissions-form-container {
+            flex: 1;
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: var(--shadow);
+        }
+
+        .form-header {
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        .form-header h3 {
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        .form-header p {
+            color: var(--text-light);
+        }
+
+        .admissions-form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group label {
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--text);
+        }
+
+        .form-group input,
+        .form-group select {
+            padding: 12px 15px;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        .form-group input:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(26, 75, 140, 0.2);
+        }
+
+        /* ===== FACULTY SECTION ===== */
+        .faculty-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .faculty-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .faculty-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .faculty-image {
+            height: 200px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .image-placeholder {
+            text-align: center;
+            color: white;
+        }
+
+        .image-placeholder i {
+            font-size: 4rem;
+        }
+
+        .faculty-info {
+            padding: 25px;
+        }
+
+        .faculty-info h3 {
+            margin-bottom: 5px;
+            color: var(--primary);
+        }
+
+        .faculty-role {
+            color: var(--secondary);
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .faculty-qualification {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+
+        .faculty-bio {
+            color: var(--text);
+            font-size: 0.95rem;
+        }
+
+        /* ===== EVENTS SECTION ===== */
+        .events-timeline {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .event {
+            display: flex;
+            margin-bottom: 30px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            overflow: hidden;
+        }
+
+        .event-date {
+            background-color: var(--primary);
+            color: white;
+            padding: 20px;
+            text-align: center;
+            min-width: 100px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .event-date .day {
+            font-size: 2rem;
+            font-weight: bold;
+            line-height: 1;
+        }
+
+        .event-date .month {
+            font-size: 1.2rem;
+        }
+
+        .event-details {
+            padding: 20px;
+            flex: 1;
+        }
+
+        .event-details h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: var(--primary);
+        }
+
+        .event-details p {
+            margin-bottom: 10px;
+            color: var(--text-light);
+        }
+
+        .event-time {
+            font-weight: 500;
+            color: var(--accent);
+        }
+
+        /* ===== CONTACT SECTION ===== */
+        .contact-content {
+            display: flex;
+            gap: 60px;
+        }
+
+        .contact-info {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .contact-card {
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+        }
+
+        .contact-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--primary);
+            color: white;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .contact-details h4 {
+            margin-bottom: 8px;
+            color: var(--primary);
+        }
+
+        .contact-details p {
+            color: var(--text-light);
+            margin: 0;
+        }
+
+        .contact-map {
+            flex: 1;
+        }
+
+        .map-placeholder {
+            height: 100%;
+            background: var(--light);
+            border-radius: 15px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-light);
+            box-shadow: var(--shadow);
+        }
+
+        .map-placeholder i {
+            font-size: 4rem;
+            display: block;
+            margin-bottom: 15px;
+        }
+
+        .map-placeholder p {
+            margin: 5px 0;
+        }
+
+        /* ===== FOOTER ===== */
+        .footer {
+            background: var(--dark);
+            color: white;
+            padding: 60px 0 0;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1.5fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-section h4 {
+            margin-bottom: 20px;
+            color: var(--secondary);
+            font-size: 1.2rem;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        .footer-logo i {
+            font-size: 2rem;
+            color: var(--secondary);
+        }
+
+        .footer-logo h3 {
+            margin: 0;
+            color: white;
+        }
+
+        .footer-logo p {
+            margin: 0;
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+
+        .footer-about {
+            margin-bottom: 25px;
+            color: #aaa;
+            line-height: 1.6;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            background: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        .footer-section ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer-section ul li a {
+            color: #aaa;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-section ul li a:hover {
+            color: var(--secondary);
+            padding-left: 5px;
+        }
+
+        .newsletter-form {
+            display: flex;
+            margin-top: 15px;
+        }
+
+        .newsletter-form input {
+            flex: 1;
+            padding: 12px 15px;
+            border: none;
+            border-radius: 8px 0 0 8px;
+            font-size: 1rem;
+        }
+
+        .newsletter-form button {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 0 20px;
+            border-radius: 0 8px 8px 0;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .newsletter-form button:hover {
+            background: var(--primary-light);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 20px 0;
+            text-align: center;
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+
+        /* ===== NOTIFICATION STYLES ===== */
+        .notification {
+            position: fixed;
+            top: 100px;
+            right: 20px;
+            background: #4CAF50;
+            color: white;
+            padding: 15px 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 15px;
+            max-width: 400px;
+            z-index: 10000;
+            animation: slideIn 0.3s ease;
+        }
+
+        .notification.error {
+            background: #f44336;
+        }
+
+        .notification-content {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .notification-close {
+            background: none;
+            border: none;
+            color: white;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        /* ===== COUNTER ANIMATION ===== */
+        .counter {
+            display: inline-block;
+        }
+
+        /* ===== RESPONSIVE DESIGN ===== */
+        @media (max-width: 992px) {
+
+            .hero-container,
+            .about-content,
+            .admissions-content,
+            .contact-content {
+                flex-direction: column;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .hero-title {
+                font-size: 2.8rem;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-menu {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                width: 100%;
+                background: white;
+                flex-direction: column;
+                padding: 20px;
+                box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+                transition: var(--transition);
+                gap: 0;
+            }
+
+            .nav-menu.active {
+                left: 0;
+            }
+
+            .nav-link {
+                padding: 15px 0;
+                border-bottom: 1px solid var(--border);
+                width: 100%;
+            }
+
+            .nav-link:last-child {
+                border-bottom: none;
+            }
+
+            .nav-toggle {
+                display: flex;
+            }
+
+            .nav-toggle.active .bar:nth-child(1) {
+                transform: rotate(45deg) translate(5px, 5px);
+            }
+
+            .nav-toggle.active .bar:nth-child(2) {
+                opacity: 0;
+            }
+
+            .nav-toggle.active .bar:nth-child(3) {
+                transform: rotate(-45deg) translate(7px, -6px);
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+            }
+
+            .hero-stats {
+                justify-content: space-around;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .floating-card {
+                display: none;
+            }
+
+            .event {
+                flex-direction: column;
+            }
+
+            .event-date {
+                flex-direction: row;
+                justify-content: center;
+                gap: 10px;
+                padding: 10px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero {
+                padding: 120px 0 60px;
+            }
+
+            .hero-title {
+                font-size: 2.2rem;
+         }
+
+            .section-title {
+                font-size: 1.8rem;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+
+            .academics-grid,
+            .faculty-grid {
+                grid-template-columns: 1fr;
+            }
+
+            section {
+                padding: 60px 0;
+            }
+        }
+    </style>    }
+
+            .hero-description {
+                font-size: 1rem;
+           
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <div class="nav-logo">
+                <div class="">
+                    <p><img src="logo_by_asim__1_-removebg-preview.png" width="60" height="60"></p>
+                </div>
+                <div class="logo-text">
+                    <h2>GPSS MULTAN</h2>
+                    <p>Govt. Pilot Secondary School</p>
+                </div>
+            </div>
+            <div class="nav-menu" id="navMenu">
+                <a href="#home" class="nav-link active">Home</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#academics" class="nav-link">Academics</a>
+                <a href="#admissions" class="nav-link">Admissions</a>
+                <a href="#faculty" class="nav-link">Faculty</a>
+                <a href="#events" class="nav-link">Events</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </div>
+            <div class="nav-toggle" id="navToggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container hero-container">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <span>Established 1960</span>
+                </div>
+                <h1 class="hero-title">Shaping Minds, Building Futures</h1>
+                <p class="hero-description">Govt. Pilot Secondary School Multan provides quality education with modern
+                    teaching methodologies, nurturing students to become responsible citizens and future leaders.</p>
+                <div class="hero-buttons">
+                    <a href="#admissions" class="btn btn-primary">
+                        <i class="fas fa-file-alt"></i> Apply Now
+                    </a>
+                    <a href="#about" class="btn btn-secondary">
+                        <i class="fas fa-play-circle"></i> Watch Video
+                    </a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <h3 class="counter" data-target="2000">0</h3>
+                        <p>Students</p>
+                    </div>
+                    <div class="stat">
+                        <h3 class="counter" data-target="80">0</h3>
+                        <p>Teachers</p>
+                    </div>
+                    <div class="stat">
+                        <h3 class="counter" data-target="60">0</h3>
+                        <p>Years</p>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-visual">
+                 <p><img src="2 WhatsApp Image 2024-12-19 at 14.03.22_f4116229.jpg " width="500" height="400" alt=""></p>
+                <div class="floating-card card-1">
+                    <i class="fas fa-trophy"></i>
+                    <p>Academic Excellence</p>
+                </div>
+                <div class="floating-card card-2">
+                    <i class="fas fa-flask"></i>
+                    <p>Science Labs</p>
+                </div>
+                <div class="floating-card card-3">
+                    <i class="fas fa-futbol"></i>
+                    <p>Sports Facilities</p>
+                </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">About Our School</h2>
+                <p class="section-subtitle">A legacy of educational excellence since 1960</p>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Govt. Pilot Secondary School Multan has been a cornerstone of quality education in the region for
+                        over six decades. Our institution is committed to providing a holistic learning environment that
+                        nurtures intellectual, social, and emotional growth.</p>
+
+                    <div class="features-grid">
+                        <div class="feature feature-1">
+                            <div class="feature-icon"><i class="fas fa-book"></i></div>
+                            <div class="feature-text">
+                                <h4>Quality Education</h4>
+                                <p>Comprehensive curriculum aligned with modern educational standards</p>
+                            </div>
+                        </div>
+                        <div class="feature feature-2">
+                            <div class="feature-icon"><i class="fas fa-chalkboard-teacher"></i></div>
+                            <div class="feature-text">
+                                <h4>Experienced Faculty</h4>
+                                <p>Highly qualified and dedicated teaching staff</p>
+                            </div>
+                        </div>
+                        <div class="feature feature-3">
+                            <div class="feature-icon"><i class="fas fa-laptop"></i></div>
+                            <div class="feature-text">
+                                <h4>Modern Facilities</h4>
+                                <p>State-of-the-art labs, library and sports facilities</p>
+                            </div>
+                        </div>
+                        <div class="feature feature-4">
+                            <div class="feature-icon"><i class="fas fa-chart-line"></i></div>
+                            <div class="feature-text">
+                                <h4>Proven Results</h4>
+                                <p>Consistent outstanding performance in board examinations</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-visual">
+                    <div class="image-frame">
+                        <div class="frame-placeholder">
+                            
+                            <p><img src="SCHOOL ADD_page-0002.jpg" width=850 height="550" ></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Academics Section -->
+    <section id="academics" class="academics">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Academic Programs</h2>
+                <p class="section-subtitle">Comprehensive education from primary to secondary level</p>
+            </div>
+            <div class="academics-grid">
+                <div class="academic-card card-1">
+                    <div class="card-header">
+                        <div class="card-icon"><i class="fas fa-pencil-alt"></i></div>
+                        <h3>Middle</h3>
+                    </div>
+                    <div class="card-body">
+                        <p>Classes 6-8 with introduction to specialized subjects and development of critical thinking
+                            skills.</p>
+                        <ul>
+                            <li>Advanced Mathematics</li>
+                            <li>Science</li>
+                            <li>Computer Science</li>
+                            <li>Pakistan Studies</li>
+                            <li>Physical Education</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="academic-card card-3">
+                    <div class="card-header">
+                        <div class="card-icon"><i class="fas fa-graduation-cap"></i></div>
+                        <h3>Matriculation</h3>
+                    </div>
+                    <div class="card-body">
+                        <p>Classes 9-10 preparing students for Matriculation examinations with comprehensive subject
+                            options.</p>
+                        <ul>
+                            <li>Science Group</li>
+                            <li>Health Tech Group</li>
+                            <li>Computer Science Group</li>
+                            <li>Computer Tech Group</li>
+                            <li>General Mathematics</li>
+                            <li>English Literature</li>
+                            <li>Career Counseling</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Admissions Section -->
+    <section id="admissions" class="admissions">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Admissions</h2>
+                <p class="section-subtitle">Join our community of learners and achievers</p>
+            </div>
+            <div class="admissions-content">
+                <div class="admissions-process">
+                    <h3>Admission Process</h3>
+                    <div class="process-steps">
+                        <div class="step">
+                            <div class="step-number">1</div>
+                            <div class="step-content">
+                                <h4>Inquiry & Form Submission</h4>
+                                <p>Submit the admission form with required documents</p>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <div class="step-number">2</div>
+                            <div class="step-content">
+                                <h4>Entrance Test</h4>
+                                <p>Assessment for class 6 and above (if applicable)</p>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <div class="step-number">3</div>
+                            <div class="step-content">
+                                <h4>Interview</h4>
+                                <p>Meeting with school administration and parents</p>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <div class="step-number">4</div>
+                            <div class="step-content">
+                                <h4>Confirmation</h4>
+                                <p>Admission confirmation and fee submission</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="admissions-form-container">
+                    <div class="form-header">
+                        <h3>Request Information</h3>
+                        <p>Fill out the form below and we'll contact you shortly</p>
+                    </div>
+                    <form class="admissions-form" id="admissionForm">
+                        <div class="form-group">
+                            <label for="parentName">Parent/Guardian Name</label>
+                            <input type="text" id="parentName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="studentName">Student Name</label>
+                            <input type="text" id="studentName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="grade">Grade Interested In</label>
+                            <select id="grade" required>
+                                <option value="6">Class 6</option>
+                                <option value="7">Class 7</option>
+                                <option value="8">Class 8</option>
+                                <option value="9">Class 9</option>
+                                <option value="10">Class 10</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block">
+                            <i class="fas fa-paper-plane"></i> Submit Request
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Faculty Section -->
+    <section id="faculty" class="faculty">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Our Faculty</h2>
+                <p class="section-subtitle">Meet our dedicated and experienced teaching staff</p>
+            </div>
+            <div class="faculty-grid">
+                <div class="faculty-card faculty-1">
+                    <div class="faculty-image">
+                        <div class="image-placeholder"><i class="fas fa-user-tie"></i></div>
+                    </div>
+                    <div class="faculty-info">
+                        <h3>Mr. Syed Tanveer Ur Rehman Shah</h3>
+                        <p class="faculty-role">Principal</p>
+                        <p class="faculty-qualification">M.Ed, 25+ years experience</p>
+                        <p class="faculty-bio">Dedicated to providing quality education and fostering a positive
+                            learning environment.</p>
+                    </div>
+                </div>
+
+                <div class="faculty-card faculty-2">
+                    <div class="faculty-image">
+                        <div class="image-placeholder"><i class="fas fa-user-graduate"></i></div>
+                    </div>
+                    <div class="faculty-info">
+                        <h3>Mr. Malik M. Asif Iqbal</h3>
+                        <p class="faculty-role">Head Teacher</p>
+                        <p class="faculty-qualification">M.Sc Physics, 15 years experience</p>
+                        <p class="faculty-bio">Passionate about making science accessible and engaging for all students.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="faculty-card faculty-3">
+                    <div class="faculty-image">
+                        <div class="image-placeholder"><i class=""><img src="WhatsApp_Image_2025-02-24_at_13.37.35_f19cd545-removebg-preview (1).png" width="370" height="270" alt=""></i></div>
+                    </div>
+                    <div class="faculty-info">
+                        <h3>Mr. Meraj Khalid</h3>
+                        <p class="faculty-role">I.T</p>
+                        <p class="faculty-qualification">M.CS Computer Science, 12 years experience</p>
+                        <p class="faculty-bio">Believes in building strong IT foundations through practical
+                            applications.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Events Section -->
+    <section id="events" class="events">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Upcoming Events</h2>
+                <p class="section-subtitle">Stay updated with our school activities and programs</p>
+            </div>
+            <div class="events-timeline">
+                <div class="event">
+                    <div class="event-date">
+                        <span class="day">15</span>
+                        <span class="month">Oct</span>
+                    </div>
+                    <div class="event-details">
+                        <h3>Annual Sports Day</h3>
+                        <p>Join us for our annual sports competition with various athletic events.</p>
+                        <span class="event-time">9:00 AM - School Ground</span>
+                    </div>
+                </div>
+                <div class="event">
+                    <div class="event-date">
+                        <span class="day">25</span>
+                        <span class="month">Oct</span>
+                    </div>
+                    <div class="event-details">
+                        <h3>Science Exhibition</h3>
+                        <p>Students showcase their innovative science projects and experiments.</p>
+                        <span class="event-time">10:00 AM - Science Lab</span>
+                    </div>
+                </div>
+                <div class="event">
+                    <div class="event-date">
+                        <span class="day">05</span>
+                        <span class="month">Nov</span>
+                    </div>
+                    <div class="event-details">
+                        <h3>Parent-Teacher Meeting</h3>
+                        <p>Quarterly meeting to discuss student progress and development.</p>
+                        <span class="event-time">2:00 PM - School Auditorium</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Contact Us</h2>
+                <p class="section-subtitle">Get in touch with us for any inquiries</p>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-card contact-1">
+                        <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
+                        <div class="contact-details">
+                            <h4>Address</h4>
+                            <p>Abdali Road, Nawan Shehr Multan<br>Punjab, Pakistan</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-card contact-2">
+                        <div class="contact-icon"><i class="fas fa-phone"></i></div>
+                        <div class="contact-details">
+                            <h4>Phone</h4>
+                            <p>+92 61 1234567</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-card contact-3">
+                        <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+                        <div class="contact-details">
+                            <h4>Email</h4>
+                            <p>gpssmultan@gmail.com</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-card contact-4">
+                        <div class="contact-icon"><i class="fas fa-clock"></i></div>
+                        <div class="contact-details">
+                            <h4>School Hours</h4>
+                            <p>Monday - Thursday: 8:45 AM - 1:30 PM</p>
+                            <p>Friday: 8:45 AM - 12:30 PM</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-map">
+                    <div class="map-placeholder">
+                        <i class="fas fa-map-marked-alt"></i>
+                        <p>Abdali Rd, Nawan Shehr, Multan</p>
+                        <p>Punjab, Pakistan</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                       
+                        <p><img src="logo_by_asim__1_-removebg-preview.png" width="60" height="60" alt=""></p>
+                        <div>
+                            <h3>GPSS MULTAN</h3>
+                            <p>Govt. Pilot Secondary School</p>
+                        </div>
+                    </div>
+                    <p class="footer-about">Committed to excellence in education since 1960, shaping future leaders of
+                        Pakistan.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#academics">Academics</a></li>
+                        <li><a href="#admissions">Admissions</a></li>
+                        <li><a href="#faculty">Faculty</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Academic Programs</h4>
+                    <ul>
+                        <li><a href="#">Primary Education</a></li>
+                        <li><a href="#">Middle School</a></li>
+                        <li><a href="#">Secondary Education</a></li>
+                        <li><a href="#">Science Programs</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Newsletter</h4>
+                    <p>Subscribe to our newsletter for updates and announcements</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Your email address">
+                        <button type="submit"><i class="fas fa-paper-plane"></i></button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 Govt. Pilot Secondary School Multan. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Navigation Toggle
+        const navToggle = document.getElementById('navToggle');
+        const navMenu = document.getElementById('navMenu');
+
+        navToggle.addEventListener('click', () => {
+            navToggle.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                navToggle.classList.remove('active');
+                navMenu.classList.remove('active');
+            });
+        });
+
+        // Form Submission
+        const admissionForm = document.getElementById('admissionForm');
+
+        if (admissionForm) {
+            admissionForm.addEventListener('submit', function (e) {
+                e.preventDefault();
+
+                // Get form values
+                const parentName = document.getElementById('parentName').value.trim();
+                const studentName = document.getElementById('studentName').value.trim();
+                const email = document.getElementById('email').value.trim();
+                const phone = document.getElementById('phone').value.trim();
+                const grade = document.getElementById('grade').value;
+
+                // Enhanced validation
+                if (!validateForm(parentName, studentName, email, phone, grade)) {
+                    return;
+                }
+
+                // In a real application, you would send this data to a server
+                // For this demo, we'll just show a success message
+                showNotification(`Thank you ${parentName}! We have received your information request for Class ${grade}. We will contact you at ${email} or ${phone} shortly.`, 'success');
+
+                // Reset form
+                admissionForm.reset();
+            });
+        }
+
+        // Enhanced form validation
+        function validateForm(parentName, studentName, email, phone, grade) {
+            // Validation checks
+            if (!parentName || parentName.length < 2) {
+                showNotification('Please enter a valid parent/guardian name', 'error');
+                return false;
+            }
+
+            if (!studentName || studentName.length < 2) {
+                showNotification('Please enter a valid student name', 'error');
+                return false;
+            }
+
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                showNotification('Please enter a valid email address', 'error');
+                return false;
+            }
+
+            const phoneRegex = /^[\+]?[0-9\s\-\(\)]{10,}$/;
+            if (!phoneRegex.test(phone)) {
+                showNotification('Please enter a valid phone number', 'error');
+                return false;
+            }
+
+            if (!grade) {
+                showNotification('Please select a grade', 'error');
+                return false;
+            }
+
+            return true;
+        }
+
+        // Notification function
+        function showNotification(message, type) {
+            // Create notification element
+            const notification = document.createElement('div');
+            notification.className = `notification ${type}`;
+            notification.innerHTML = `
+                <div class="notification-content">
+                    <span>${type === 'success' ? '✅' : '❌'}</span>
+                    <span>${message}</span>
+                </div>
+                <button class="notification-close">✖</button>
+            `;
+
+            // Add to page
+            document.body.appendChild(notification);
+
+            // Close button functionality
+            const closeBtn = notification.querySelector('.notification-close');
+            closeBtn.addEventListener('click', () => {
+                notification.remove();
+            });
+
+            // Auto remove after 5 seconds
+            setTimeout(() => {
+                if (notification.parentNode) {
+                    notification.remove();
+                }
+            }, 5000);
+        }
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    const headerHeight = document.querySelector('.navbar').offsetHeight;
+                    const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Navbar background change on scroll
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.style.backgroundColor = 'rgba(255, 255, 255, 0.98)';
+                navbar.style.boxShadow = '0 5px 15px rgba(0, 0, 0, 0.1)';
+            } else {
+                navbar.style.backgroundColor = 'rgba(255, 255, 255, 0.95)';
+                navbar.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
+            }
+        });
+
+        // Add active class to current section in navigation
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('.nav-link');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= (sectionTop - 100)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Counter animation for statistics
+        function animateCounters() {
+            const counters = document.querySelectorAll('.counter');
+
+            counters.forEach(counter => {
+                const target = parseInt(counter.getAttribute('data-target'));
+                const increment = target / 100;
+                let current = 0;
+
+                const updateCounter = () => {
+                    if (current < target) {
+                        current += increment;
+                        counter.textContent = Math.ceil(current) + '+';
+                        setTimeout(updateCounter, 20);
+                    } else {
+                        counter.textContent = target + '+';
+                    }
+                };
+
+                updateCounter();
+            });
+        }
+
+        // Animation on scroll
+        function animateOnScroll() {
+            const elements = document.querySelectorAll('.academic-card, .faculty-card, .feature, .step');
+
+            elements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 150;
+
+                if (elementTop < window.innerHeight - elementVisible) {
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
+                }
+            });
+        }
+
+        // Set initial state for animated elements
+        document.querySelectorAll('.academic-card, .faculty-card, .feature, .step').forEach(element => {
+            element.style.opacity = '0';
+            element.style.transform = 'translateY(20px)';
+            element.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+        });
+
+        // Listen for scroll events
+        window.addEventListener('scroll', animateOnScroll);
+
+        // Current year for footer
+        document.addEventListener('DOMContentLoaded', () => {
+            const yearElement = document.querySelector('.footer-bottom p');
+            if (yearElement) {
+                const currentYear = new Date().getFullYear();
+                yearElement.innerHTML = yearElement.innerHTML.replace('2023', currentYear);
+            }
+        });
+
+        // Initialize the website
+        document.addEventListener('DOMContentLoaded', function () {
+            console.log('Govt. Pilot Secondary School Multan website loaded successfully!');
+
+            // Trigger initial animations
+            animateOnScroll();
+
+            // Start counter animation after a delay
+            setTimeout(animateCounters, 1000);
+        });
+    </script>
+</body>
+
+</html>
